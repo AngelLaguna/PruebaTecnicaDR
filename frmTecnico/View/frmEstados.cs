@@ -21,24 +21,59 @@ namespace frmTecnico.View
             dgvEstados.DataSource = cont.GetAllEstados();
         }
 
+        /// <summary>
+        /// Metodo para registrar el estado en a base de datos
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void btnGuardarEstado_Click(object sender, EventArgs e)
         {
-            Estados est = new Estados();
-            est.Estado = txtNEstado.Text;
-            if (est.Estado.Equals(""))
+            if (txtNEstado.Text.Equals("") && txtClave.Text.Equals(""))
             {
-                MessageBox.Show("Es necesario escribir un estado");
-            }else
+                MessageBox.Show("Los campos son obligatorios");
+            }
+            else
             {
-                if (cont.AddEstado(est).Equals(true)){
-                    MessageBox.Show("Estado almacenado correctamente");
-                    dgvEstados.DataSource = cont.GetAllEstados();
-                    txtNEstado.Text = "";
+                Estados est = new Estados();
+                est.Estado = txtNEstado.Text;
+                est.Clave = txtClave.Text;
+                if (est.Estado.Equals("") && est.Clave.Equals(""))
+                {
+                    MessageBox.Show("Es necesario escribir un estado");
                 }
                 else
                 {
-                    MessageBox.Show("Ocurrio un problema al guardar");
+                    if (cont.AddEstado(est).Equals(true))
+                    {
+                        MessageBox.Show("Estado almacenado correctamente");
+                        dgvEstados.DataSource = cont.GetAllEstados();
+                        txtNEstado.Text = "";
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ocurrio un problema al guardar");
+                    }
                 }
+            }
+        }
+
+        private void txtNEstado_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtClave_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten letras", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
             }
         }
     }

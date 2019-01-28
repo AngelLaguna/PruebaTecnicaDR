@@ -30,7 +30,7 @@ namespace frmTecnico.Model
         public virtual DbSet<Estados> Estados { get; set; }
         public virtual DbSet<Persona> Persona { get; set; }
     
-        public virtual int InsertaPersona(string nombre, string apPaterno, string apMaterno, Nullable<System.DateTime> fNacimiento, string sexo, string telefono, Nullable<int> idEstadoN, Nullable<int> idEstadoA, string delegacion, string colonia, string calle, string numero)
+        public virtual int InsertaPersona(string nombre, string apPaterno, string apMaterno, Nullable<System.DateTime> fNacimiento, string sexo, string telefono, string estadoN, string estadoA, string delegacion, string colonia, string calle, string numero)
         {
             var nombreParameter = nombre != null ?
                 new ObjectParameter("Nombre", nombre) :
@@ -56,13 +56,13 @@ namespace frmTecnico.Model
                 new ObjectParameter("Telefono", telefono) :
                 new ObjectParameter("Telefono", typeof(string));
     
-            var idEstadoNParameter = idEstadoN.HasValue ?
-                new ObjectParameter("IdEstadoN", idEstadoN) :
-                new ObjectParameter("IdEstadoN", typeof(int));
+            var estadoNParameter = estadoN != null ?
+                new ObjectParameter("EstadoN", estadoN) :
+                new ObjectParameter("EstadoN", typeof(string));
     
-            var idEstadoAParameter = idEstadoA.HasValue ?
-                new ObjectParameter("IdEstadoA", idEstadoA) :
-                new ObjectParameter("IdEstadoA", typeof(int));
+            var estadoAParameter = estadoA != null ?
+                new ObjectParameter("EstadoA", estadoA) :
+                new ObjectParameter("EstadoA", typeof(string));
     
             var delegacionParameter = delegacion != null ?
                 new ObjectParameter("Delegacion", delegacion) :
@@ -80,7 +80,21 @@ namespace frmTecnico.Model
                 new ObjectParameter("Numero", numero) :
                 new ObjectParameter("Numero", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertaPersona", nombreParameter, apPaternoParameter, apMaternoParameter, fNacimientoParameter, sexoParameter, telefonoParameter, idEstadoNParameter, idEstadoAParameter, delegacionParameter, coloniaParameter, calleParameter, numeroParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertaPersona", nombreParameter, apPaternoParameter, apMaternoParameter, fNacimientoParameter, sexoParameter, telefonoParameter, estadoNParameter, estadoAParameter, delegacionParameter, coloniaParameter, calleParameter, numeroParameter);
+        }
+    
+        public virtual ObjectResult<Nullable<int>> SelectIdEstado(string estado)
+        {
+            var estadoParameter = estado != null ?
+                new ObjectParameter("Estado", estado) :
+                new ObjectParameter("Estado", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<Nullable<int>>("SelectIdEstado", estadoParameter);
+        }
+    
+        public virtual ObjectResult<SelectAllPersonas_Result> SelectAllPersonas()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<SelectAllPersonas_Result>("SelectAllPersonas");
         }
     }
 }

@@ -10,7 +10,7 @@ namespace frmTecnico.Controller
     class PersonaController
     {
         PruebaTecnicaEntities entities = new PruebaTecnicaEntities();
-        public bool AddPersona(Persona persona)
+        public bool AddPersona(Persona persona, Estados es, Estados es2)
         {
             try
             {
@@ -22,8 +22,8 @@ namespace frmTecnico.Controller
                     persona.FNacimiento,
                     persona.Sexo,
                     persona.Telefono,
-                    persona.IdEstadoN,
-                    persona.IdEstado,
+                    es.Estado,
+                    es2.Estado,
                     persona.Delegacion,
                     persona.Colonia,
                     persona.Calle,
@@ -36,5 +36,19 @@ namespace frmTecnico.Controller
                 return false;
             }
         }
+
+        public List<SelectAllPersonas_Result> GetAllPersonas()
+        {
+            List<SelectAllPersonas_Result> allP = new List<SelectAllPersonas_Result>();
+            try
+            {
+                allP = entities.SelectAllPersonas().ToList();
+            }catch(Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return allP;
+        }
+
     }
 }

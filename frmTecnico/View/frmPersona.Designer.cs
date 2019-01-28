@@ -59,6 +59,8 @@
             this.etEstado = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnGuardar = new System.Windows.Forms.Button();
+            this.pnlTituloP = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -67,6 +69,7 @@
             this.gboxPrincipales.SuspendLayout();
             this.fboxDomicilio.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.pnlTituloP.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -75,20 +78,21 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.splitContainer1, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.panel1, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pnlTituloP, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 28F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 72F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(649, 454);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 24.09639F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75.90362F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(757, 454);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // splitContainer1
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(3, 119);
+            this.splitContainer1.Location = new System.Drawing.Point(3, 96);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -98,8 +102,8 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.fboxDomicilio);
-            this.splitContainer1.Size = new System.Drawing.Size(643, 293);
-            this.splitContainer1.SplitterDistance = 297;
+            this.splitContainer1.Size = new System.Drawing.Size(751, 289);
+            this.splitContainer1.SplitterDistance = 346;
             this.splitContainer1.TabIndex = 0;
             // 
             // gboxPrincipales
@@ -121,7 +125,7 @@
             this.gboxPrincipales.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.gboxPrincipales.Location = new System.Drawing.Point(0, 0);
             this.gboxPrincipales.Name = "gboxPrincipales";
-            this.gboxPrincipales.Size = new System.Drawing.Size(297, 293);
+            this.gboxPrincipales.Size = new System.Drawing.Size(346, 289);
             this.gboxPrincipales.TabIndex = 0;
             this.gboxPrincipales.TabStop = false;
             this.gboxPrincipales.Text = "Datos personales";
@@ -132,16 +136,17 @@
             this.dtpFNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpFNacimiento.Location = new System.Drawing.Point(167, 134);
             this.dtpFNacimiento.Name = "dtpFNacimiento";
-            this.dtpFNacimiento.Size = new System.Drawing.Size(108, 24);
+            this.dtpFNacimiento.Size = new System.Drawing.Size(131, 24);
             this.dtpFNacimiento.TabIndex = 12;
             // 
             // cboxNacimiento
             // 
+            this.cboxNacimiento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxNacimiento.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxNacimiento.FormattingEnabled = true;
             this.cboxNacimiento.Location = new System.Drawing.Point(167, 214);
             this.cboxNacimiento.Name = "cboxNacimiento";
-            this.cboxNacimiento.Size = new System.Drawing.Size(121, 24);
+            this.cboxNacimiento.Size = new System.Drawing.Size(131, 24);
             this.cboxNacimiento.TabIndex = 11;
             // 
             // rbtnFemenino
@@ -168,28 +173,31 @@
             // 
             // txtApMaterno
             // 
+            this.txtApMaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApMaterno.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApMaterno.Location = new System.Drawing.Point(167, 90);
             this.txtApMaterno.Name = "txtApMaterno";
-            this.txtApMaterno.Size = new System.Drawing.Size(100, 24);
+            this.txtApMaterno.Size = new System.Drawing.Size(131, 24);
             this.txtApMaterno.TabIndex = 8;
             this.txtApMaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApMaterno_KeyPress);
             // 
             // txtApPaterno
             // 
+            this.txtApPaterno.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtApPaterno.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtApPaterno.Location = new System.Drawing.Point(167, 56);
             this.txtApPaterno.Name = "txtApPaterno";
-            this.txtApPaterno.Size = new System.Drawing.Size(100, 24);
+            this.txtApPaterno.Size = new System.Drawing.Size(131, 24);
             this.txtApPaterno.TabIndex = 7;
             this.txtApPaterno.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtApPaterno_KeyPress);
             // 
             // txtNombre
             // 
+            this.txtNombre.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNombre.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNombre.Location = new System.Drawing.Point(167, 22);
             this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(100, 24);
+            this.txtNombre.Size = new System.Drawing.Size(131, 24);
             this.txtNombre.TabIndex = 6;
             this.txtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNombre_KeyPress);
             // 
@@ -271,18 +279,19 @@
             this.fboxDomicilio.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.fboxDomicilio.Location = new System.Drawing.Point(0, 0);
             this.fboxDomicilio.Name = "fboxDomicilio";
-            this.fboxDomicilio.Size = new System.Drawing.Size(342, 293);
+            this.fboxDomicilio.Size = new System.Drawing.Size(401, 289);
             this.fboxDomicilio.TabIndex = 0;
             this.fboxDomicilio.TabStop = false;
             this.fboxDomicilio.Text = "Domicilio Actual";
             // 
             // cboxEstados
             // 
+            this.cboxEstados.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboxEstados.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cboxEstados.FormattingEnabled = true;
             this.cboxEstados.Location = new System.Drawing.Point(188, 21);
             this.cboxEstados.Name = "cboxEstados";
-            this.cboxEstados.Size = new System.Drawing.Size(121, 24);
+            this.cboxEstados.Size = new System.Drawing.Size(131, 24);
             this.cboxEstados.TabIndex = 13;
             // 
             // txtTelefono
@@ -296,32 +305,36 @@
             // 
             // txtDelegacion
             // 
+            this.txtDelegacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDelegacion.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtDelegacion.Location = new System.Drawing.Point(188, 51);
             this.txtDelegacion.Name = "txtDelegacion";
-            this.txtDelegacion.Size = new System.Drawing.Size(100, 24);
+            this.txtDelegacion.Size = new System.Drawing.Size(183, 24);
             this.txtDelegacion.TabIndex = 9;
             this.txtDelegacion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDelegacion_KeyPress);
             // 
             // txtColonia
             // 
+            this.txtColonia.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtColonia.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtColonia.Location = new System.Drawing.Point(188, 93);
             this.txtColonia.Name = "txtColonia";
-            this.txtColonia.Size = new System.Drawing.Size(100, 24);
+            this.txtColonia.Size = new System.Drawing.Size(183, 24);
             this.txtColonia.TabIndex = 8;
             this.txtColonia.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtColonia_KeyPress);
             // 
             // txtCalle
             // 
+            this.txtCalle.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCalle.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtCalle.Location = new System.Drawing.Point(188, 129);
             this.txtCalle.Name = "txtCalle";
-            this.txtCalle.Size = new System.Drawing.Size(100, 24);
+            this.txtCalle.Size = new System.Drawing.Size(183, 24);
             this.txtCalle.TabIndex = 7;
             // 
             // txtNumero
             // 
+            this.txtNumero.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNumero.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtNumero.Location = new System.Drawing.Point(188, 167);
             this.txtNumero.Name = "txtNumero";
@@ -393,15 +406,15 @@
             // 
             this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 418);
+            this.panel1.Location = new System.Drawing.Point(3, 391);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(643, 33);
+            this.panel1.Size = new System.Drawing.Size(751, 60);
             this.panel1.TabIndex = 1;
             // 
             // btnGuardar
             // 
             this.btnGuardar.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.Location = new System.Drawing.Point(244, 1);
+            this.btnGuardar.Location = new System.Drawing.Point(288, 19);
             this.btnGuardar.Name = "btnGuardar";
             this.btnGuardar.Size = new System.Drawing.Size(108, 32);
             this.btnGuardar.TabIndex = 0;
@@ -409,12 +422,33 @@
             this.btnGuardar.UseVisualStyleBackColor = true;
             this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
+            // pnlTituloP
+            // 
+            this.pnlTituloP.Controls.Add(this.label1);
+            this.pnlTituloP.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTituloP.Location = new System.Drawing.Point(3, 3);
+            this.pnlTituloP.Name = "pnlTituloP";
+            this.pnlTituloP.Size = new System.Drawing.Size(751, 87);
+            this.pnlTituloP.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(10, 10);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(262, 34);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Registro de Personas";
+            // 
             // frmPersona
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(649, 454);
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(757, 454);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.Name = "frmPersona";
             this.Text = "Registro de Personal";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -427,6 +461,8 @@
             this.fboxDomicilio.ResumeLayout(false);
             this.fboxDomicilio.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.pnlTituloP.ResumeLayout(false);
+            this.pnlTituloP.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -464,5 +500,7 @@
         private System.Windows.Forms.Label etColonia;
         private System.Windows.Forms.Label etDelegacion;
         private System.Windows.Forms.Label etEstado;
+        private System.Windows.Forms.Panel pnlTituloP;
+        private System.Windows.Forms.Label label1;
     }
 }

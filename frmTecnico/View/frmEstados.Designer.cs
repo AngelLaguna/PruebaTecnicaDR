@@ -31,12 +31,16 @@
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.ContEstados = new System.Windows.Forms.SplitContainer();
             this.gboxNEstado = new System.Windows.Forms.GroupBox();
-            this.etNEstado = new System.Windows.Forms.Label();
+            this.txtClave = new System.Windows.Forms.TextBox();
+            this.etClave = new System.Windows.Forms.Label();
             this.txtNEstado = new System.Windows.Forms.TextBox();
+            this.etNEstado = new System.Windows.Forms.Label();
             this.gboxListaEstados = new System.Windows.Forms.GroupBox();
             this.dgvEstados = new System.Windows.Forms.DataGridView();
             this.pnlBotonEstados = new System.Windows.Forms.Panel();
             this.btnGuardarEstado = new System.Windows.Forms.Button();
+            this.pnlTituloE = new System.Windows.Forms.Panel();
+            this.etTituloE = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ContEstados)).BeginInit();
             this.ContEstados.Panel1.SuspendLayout();
@@ -46,6 +50,7 @@
             this.gboxListaEstados.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).BeginInit();
             this.pnlBotonEstados.SuspendLayout();
+            this.pnlTituloE.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel1
@@ -54,6 +59,7 @@
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel1.Controls.Add(this.ContEstados, 0, 1);
             this.tableLayoutPanel1.Controls.Add(this.pnlBotonEstados, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.pnlTituloE, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -83,6 +89,8 @@
             // 
             // gboxNEstado
             // 
+            this.gboxNEstado.Controls.Add(this.txtClave);
+            this.gboxNEstado.Controls.Add(this.etClave);
             this.gboxNEstado.Controls.Add(this.txtNEstado);
             this.gboxNEstado.Controls.Add(this.etNEstado);
             this.gboxNEstado.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -94,6 +102,36 @@
             this.gboxNEstado.TabStop = false;
             this.gboxNEstado.Text = "Nuevo Estado";
             // 
+            // txtClave
+            // 
+            this.txtClave.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtClave.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtClave.Location = new System.Drawing.Point(26, 97);
+            this.txtClave.Name = "txtClave";
+            this.txtClave.Size = new System.Drawing.Size(100, 24);
+            this.txtClave.TabIndex = 3;
+            this.txtClave.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtClave_KeyPress);
+            // 
+            // etClave
+            // 
+            this.etClave.AutoSize = true;
+            this.etClave.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.etClave.Location = new System.Drawing.Point(12, 77);
+            this.etClave.Name = "etClave";
+            this.etClave.Size = new System.Drawing.Size(39, 16);
+            this.etClave.TabIndex = 2;
+            this.etClave.Text = "Clave";
+            // 
+            // txtNEstado
+            // 
+            this.txtNEstado.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtNEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtNEstado.Location = new System.Drawing.Point(26, 46);
+            this.txtNEstado.Name = "txtNEstado";
+            this.txtNEstado.Size = new System.Drawing.Size(100, 24);
+            this.txtNEstado.TabIndex = 1;
+            this.txtNEstado.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtNEstado_KeyPress);
+            // 
             // etNEstado
             // 
             this.etNEstado.AutoSize = true;
@@ -103,14 +141,6 @@
             this.etNEstado.Size = new System.Drawing.Size(48, 16);
             this.etNEstado.TabIndex = 0;
             this.etNEstado.Text = "Estado";
-            // 
-            // txtNEstado
-            // 
-            this.txtNEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtNEstado.Location = new System.Drawing.Point(26, 46);
-            this.txtNEstado.Name = "txtNEstado";
-            this.txtNEstado.Size = new System.Drawing.Size(100, 24);
-            this.txtNEstado.TabIndex = 1;
             // 
             // gboxListaEstados
             // 
@@ -144,6 +174,7 @@
             // 
             // btnGuardarEstado
             // 
+            this.btnGuardarEstado.Font = new System.Drawing.Font("Microsoft Tai Le", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGuardarEstado.Location = new System.Drawing.Point(197, 10);
             this.btnGuardarEstado.Name = "btnGuardarEstado";
             this.btnGuardarEstado.Size = new System.Drawing.Size(75, 42);
@@ -152,12 +183,33 @@
             this.btnGuardarEstado.UseVisualStyleBackColor = true;
             this.btnGuardarEstado.Click += new System.EventHandler(this.btnGuardarEstado_Click);
             // 
+            // pnlTituloE
+            // 
+            this.pnlTituloE.Controls.Add(this.etTituloE);
+            this.pnlTituloE.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnlTituloE.Location = new System.Drawing.Point(3, 3);
+            this.pnlTituloE.Name = "pnlTituloE";
+            this.pnlTituloE.Size = new System.Drawing.Size(481, 48);
+            this.pnlTituloE.TabIndex = 2;
+            // 
+            // etTituloE
+            // 
+            this.etTituloE.AutoSize = true;
+            this.etTituloE.Font = new System.Drawing.Font("Microsoft Tai Le", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.etTituloE.Location = new System.Drawing.Point(12, 10);
+            this.etTituloE.Name = "etTituloE";
+            this.etTituloE.Size = new System.Drawing.Size(146, 21);
+            this.etTituloE.TabIndex = 0;
+            this.etTituloE.Text = "Registro de Estados";
+            // 
             // frmEstados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.ClientSize = new System.Drawing.Size(487, 330);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.MaximizeBox = false;
             this.Name = "frmEstados";
             this.Text = "Registro de Estados";
             this.tableLayoutPanel1.ResumeLayout(false);
@@ -170,6 +222,8 @@
             this.gboxListaEstados.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvEstados)).EndInit();
             this.pnlBotonEstados.ResumeLayout(false);
+            this.pnlTituloE.ResumeLayout(false);
+            this.pnlTituloE.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -185,5 +239,9 @@
         private System.Windows.Forms.DataGridView dgvEstados;
         private System.Windows.Forms.Panel pnlBotonEstados;
         private System.Windows.Forms.Button btnGuardarEstado;
+        private System.Windows.Forms.TextBox txtClave;
+        private System.Windows.Forms.Label etClave;
+        private System.Windows.Forms.Panel pnlTituloE;
+        private System.Windows.Forms.Label etTituloE;
     }
 }

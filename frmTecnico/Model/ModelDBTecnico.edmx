@@ -11,6 +11,7 @@
           </Key>
           <Property Name="IdEstado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Estado" Type="varchar" MaxLength="50" />
+          <Property Name="Clave" Type="varchar" MaxLength="5" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
@@ -61,12 +62,16 @@
           <Parameter Name="FNacimiento" Type="date" Mode="In" />
           <Parameter Name="Sexo" Type="varchar" Mode="In" />
           <Parameter Name="Telefono" Type="varchar" Mode="In" />
-          <Parameter Name="IdEstadoN" Type="int" Mode="In" />
-          <Parameter Name="IdEstadoA" Type="int" Mode="In" />
+          <Parameter Name="EstadoN" Type="varchar" Mode="In" />
+          <Parameter Name="EstadoA" Type="varchar" Mode="In" />
           <Parameter Name="Delegacion" Type="varchar" Mode="In" />
           <Parameter Name="Colonia" Type="varchar" Mode="In" />
           <Parameter Name="Calle" Type="varchar" Mode="In" />
           <Parameter Name="Numero" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="SelectAllPersonas" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="SelectIdEstado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Estado" Type="varchar" Mode="In" />
         </Function>
         <EntityContainer Name="PruebaTecnicaModelStoreContainer">
           <EntitySet Name="Estados" EntityType="Self.Estados" Schema="dbo" store:Type="Tables" />
@@ -92,8 +97,8 @@
             <Parameter Name="FNacimiento" Mode="In" Type="DateTime" />
             <Parameter Name="Sexo" Mode="In" Type="String" />
             <Parameter Name="Telefono" Mode="In" Type="String" />
-            <Parameter Name="IdEstadoN" Mode="In" Type="Int32" />
-            <Parameter Name="IdEstadoA" Mode="In" Type="Int32" />
+            <Parameter Name="EstadoN" Mode="In" Type="String" />
+            <Parameter Name="EstadoA" Mode="In" Type="String" />
             <Parameter Name="Delegacion" Mode="In" Type="String" />
             <Parameter Name="Colonia" Mode="In" Type="String" />
             <Parameter Name="Calle" Mode="In" Type="String" />
@@ -109,6 +114,10 @@
             <End Role="Estados" EntitySet="Estados" />
             <End Role="Persona" EntitySet="Persona" />
           </AssociationSet>
+          <FunctionImport Name="SelectIdEstado" ReturnType="Collection(Int32)">
+          <Parameter Name="Estado" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SelectAllPersonas" ReturnType="Collection(PruebaTecnicaModel.SelectAllPersonas_Result)" />
           </EntityContainer>
         <EntityType Name="Estados">
           <Key>
@@ -118,6 +127,7 @@
           <Property Name="Estado" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="Persona" Relationship="PruebaTecnicaModel.FK__Persona__IdEstad__15502E78" FromRole="Estados" ToRole="Persona" />
           <NavigationProperty Name="Persona1" Relationship="PruebaTecnicaModel.FK__Persona__IdEstad__182C9B23" FromRole="Estados" ToRole="Persona" />
+          <Property Name="Clave" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Persona">
           <Key>
@@ -163,6 +173,21 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <ComplexType Name="SelectAllPersonas_Result">
+          <Property Type="String" Name="Nombre" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ApPaterno" Nullable="true" MaxLength="30" />
+          <Property Type="String" Name="ApMaterno" Nullable="true" MaxLength="30" />
+          <Property Type="DateTime" Name="FNacimiento" Nullable="true" />
+          <Property Type="String" Name="Sexo" Nullable="true" MaxLength="1" />
+          <Property Type="String" Name="Telefono" Nullable="true" MaxLength="10" />
+          <Property Type="String" Name="Delegacion" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Colonia" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Calle" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Numero" Nullable="true" MaxLength="7" />
+          <Property Type="String" Name="ENacimiento" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Clave" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="EActual" Nullable="true" MaxLength="50" />
+        </ComplexType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -173,6 +198,7 @@
           <EntitySetMapping Name="Estados">
             <EntityTypeMapping TypeName="PruebaTecnicaModel.Estados">
               <MappingFragment StoreEntitySet="Estados">
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
                 <ScalarProperty Name="Estado" ColumnName="Estado" />
                 <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
               </MappingFragment>
@@ -197,6 +223,26 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SelectIdEstado" FunctionName="PruebaTecnicaModel.Store.SelectIdEstado" />
+          <FunctionImportMapping FunctionImportName="SelectAllPersonas" FunctionName="PruebaTecnicaModel.Store.SelectAllPersonas">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="PruebaTecnicaModel.SelectAllPersonas_Result">
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ApPaterno" ColumnName="ApPaterno" />
+                <ScalarProperty Name="ApMaterno" ColumnName="ApMaterno" />
+                <ScalarProperty Name="FNacimiento" ColumnName="FNacimiento" />
+                <ScalarProperty Name="Sexo" ColumnName="Sexo" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Delegacion" ColumnName="Delegacion" />
+                <ScalarProperty Name="Colonia" ColumnName="Colonia" />
+                <ScalarProperty Name="Calle" ColumnName="Calle" />
+                <ScalarProperty Name="Numero" ColumnName="Numero" />
+                <ScalarProperty Name="ENacimiento" ColumnName="ENacimiento" />
+                <ScalarProperty Name="Clave" ColumnName="Clave" />
+                <ScalarProperty Name="EActual" ColumnName="EActual" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
